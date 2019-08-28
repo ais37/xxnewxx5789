@@ -1,4 +1,15 @@
-﻿const me = require("discord.js") , shadow = new me.Client({disableEveryone: true
+const express = require('express');
+const app = express();
+const http = require('http');
+var request = require('request');
+app.get("/", (request, response) => {
+  response.sendStatus(200);
+});
+app.listen(process.env.PORT);
+setInterval(() => {
+  request.get("https://.glitch.me");
+}, 280000);
+const me = require("discord.js") , shadow = new me.Client({disableEveryone: true
  , autoReconnect:true}) , fs = require("fs") , config = require('./config.json')
  , s = 1000 ,  m = s * 60 , h = m * 60 , d = h * 24 , y = d * 365 
  , targeted = JSON.parse(fs.readFileSync('./delete.json' , 'utf8'))
